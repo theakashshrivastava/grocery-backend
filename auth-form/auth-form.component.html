@@ -1,0 +1,63 @@
+<h2>Weekly Coding Challenge #1: Sign in/up Form</h2>
+<div class="container" id="container">
+  <!-- Sign Up Form -->
+  <div class="form-container sign-up-container">
+    <form (ngSubmit)="onSignUp()">
+      <h1>Create Account</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span>or use your details to register</span>
+
+      <input type="text" name="userName" placeholder="User Name" [(ngModel)]="signUpData.userName" required />
+      <input type="email" name="email" placeholder="Email" [(ngModel)]="signUpData.email" required />
+      <input type="password" name="password" placeholder="Password" [(ngModel)]="signUpData.password" required />
+
+      <!-- Role Dropdown -->
+      <select name="role" [(ngModel)]="signUpData.role" required style="margin: 8px 0; padding: 12px 15px; width: 100%;">
+        <option value="" disabled selected>Select Role</option>
+        <option value="USER">USER</option>
+        <option value="ADMIN">ADMIN</option>
+      </select>
+
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+
+  <!-- Sign In Form -->
+  <div class="form-container sign-in-container">
+    <form (ngSubmit)="onSignIn()">
+      <h1>Sign in</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span>or use your account</span>
+
+      <input type="text" name="userName" placeholder="User Name" [(ngModel)]="signInData.userName" required />
+      <input type="password" name="password" placeholder="Password" [(ngModel)]="signInData.password" required />
+
+      <a href="#">Forgot your password?</a>
+      <button type="submit">Sign In</button>
+    </form>
+  </div>
+
+  <!-- Overlay Panels -->
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>Welcome Back!</h1>
+        <p>{{displayText_1}}</p>
+        <button class="ghost" (click)="switchToSignIn()">Sign In</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>Hello!</h1>
+        <p>{{displayText_2}}</p>
+        <button class="ghost" (click)="switchToSignUp()">Sign Up</button>
+      </div>
+    </div>
+  </div>
+</div>
